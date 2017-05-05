@@ -76,7 +76,8 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'polish';
+$config['language']	= $_COOKIE['language'] ?? 'polish';
+
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +325,8 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+
+$config['encryption_key'] =  '';
 
 /*
 |--------------------------------------------------------------------------
@@ -448,7 +450,7 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = TRUE;
+$config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
@@ -516,7 +518,7 @@ $config['rewrite_short_tags'] = FALSE;
 |
 | You can use both an array or a comma-separated list of proxy addresses,
 | as well as specifying whole subnets. Here are a few examples:
-|
+|s
 | Comma-separated:	'10.0.1.200,192.168.5.0/24'
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
