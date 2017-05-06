@@ -4,7 +4,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sites extends CI_Controller{
-
+    private $data = [];
     public function __construct()
     {
         parent::__construct();
@@ -13,14 +13,18 @@ class Sites extends CI_Controller{
         $this->load->model('Users_model');
         //Setup a guid
         $guid = uniqid();
+
+        if($this->ion_auth->logged_in()){
+            $user = $this->Users_model->get($this->session->username);
+            $this->data['user'] = $user;
+        }
     }
 
     public function index(){
-        $data = [];
-        if($this->ion_auth->logged_in()){
-            $user = $this->Users_model->get($this->session->username);
-            $data['user'] = $user;
-        }
-        $this->blade->render('sites/index',$data);
+        $this->blade->render('sites/index',$this->data);
+    }
+    public function about()
+    {
+      $this->blade->render('sites/about',$this->data);
     }
 }
