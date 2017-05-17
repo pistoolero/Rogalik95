@@ -8,12 +8,15 @@
     <title>@yield('title')</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{{base_url('public_html/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{base_url('public_html/css/mdb.min.css')}}" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="{{base_url('public_html/css/style.css')}}" rel="stylesheet">
+
+    <link href="{{base_url('public_html/css/odometer-theme-minimal.css')}}" rel="stylesheet">
     <!-- Template styles -->
    <style rel="stylesheet">
        /* TEMPLATE STYLES */
@@ -51,12 +54,12 @@
        /* Carousel*/
 
        .carousel {
-           height: 40%;
+           height: 30%;
        }
 
        @media (max-width: 776px) {
            .carousel {
-               height: 20%;
+               height: 15%;
            }
        }
 
@@ -78,7 +81,9 @@
 </head>
 
 <body class="elegant-color-dark">
-
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
     <!-- Start your project here-->
     <!--Navbar-->
     <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
@@ -92,10 +97,10 @@
             <div class="collapse navbar-collapse" id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{set_active("index")}}">
-                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{base_url()}}">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link">News</a>
+                    <li class="nav-item {{set_active("counter")}}">
+                        <a class="nav-link" href="{{base_url('counter')}}">Licznik</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Videos</a>
@@ -127,7 +132,7 @@
         <div class="carousel-inner" role="listbox">
 
             <!-- First slide -->
-            <div class="carousel-item active view hm-black-light" style="background-image: url('{{base_url("public_html/img/background.jpg")}}'); background-repeat: no-repeat; background-size: 100% 100%; background-position: center;">
+            <div class="carousel-item active view hm-black-light" id="channelBackground" style="background-repeat: no-repeat; background-size: 100% 100%; background-position: center;">
 
                 <!-- Caption -->
                 <div class="full-bg-img flex-center white-text">
@@ -252,10 +257,14 @@
     <script type="text/javascript" src="{{base_url('public_html/js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{base_url('public_html/js/mdb.min.js')}}"></script>
+    <script type="text/javascript" src="{{base_url('public_html/js/odometer.min.js')}}"></script>
+
 
 
     <script>
     new WOW().init();
+    </script>
+    <script type="text/javascript" src="{{base_url('public_html/js/site.js')}}" async>
     </script>
 </body>
 
