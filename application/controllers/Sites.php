@@ -8,8 +8,8 @@ class Sites extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->library(array('ion_auth','form_validation','blade','session'));
-        $this->load->helper(array('url','language','cookie'));
+        $this->load->library(array('ion_auth','form_validation','blade','session','youtube'));
+        $this->load->helper(array('url','language','cookie','date'));
         $this->load->model('Users_model');
         //Setup a guid
         $guid = uniqid();
@@ -25,6 +25,11 @@ class Sites extends CI_Controller{
     }
     public function about()
     {
+        $this->output->cache(25);
       $this->blade->render('sites/about',$this->data);
+    }
+    public function counter()
+    {
+        $this->blade->render('sites/counter');
     }
 }
