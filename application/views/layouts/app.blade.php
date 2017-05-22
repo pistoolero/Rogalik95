@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="utf-8">
@@ -17,6 +17,7 @@
     <link href="{{base_url('public_html/css/style.css')}}" rel="stylesheet">
 
     <link href="{{base_url('public_html/css/odometer-theme-minimal.css')}}" rel="stylesheet">
+    <link href="{{base_url('public_html/css/notific8.min.css')}}" rel="stylesheet">
     <!-- Template styles -->
    <style rel="stylesheet">
        /* TEMPLATE STYLES */
@@ -80,7 +81,7 @@
    </style>
 </head>
 
-<body class="elegant-color-dark">
+<body class="elegant-color">
 <div id="preloader">
     <div id="status">&nbsp;</div>
 </div>
@@ -91,10 +92,10 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <strong>Navbar</strong>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav1">
+            {{--<a class="navbar-brand" href="#">--}}
+                {{--<strong>Navbar</strong>--}}
+            {{--</a>--}}
+            <div class="collapse navbar-collapse  text-shadow-1" id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{set_active("index")}}">
                         <a class="nav-link" href="{{base_url()}}">Home <span class="sr-only">(current)</span></a>
@@ -103,22 +104,33 @@
                         <a class="nav-link" href="{{base_url('counter')}}">Licznik</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Videos</a>
+                        <a class="nav-link" id="youtube-link" target="_blank">YouTube</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link">About</a>
+                    <li class="nav- {{set_active("shop")}}">
+                        <a class="nav-link" href="{{base_url('shop')}}">Sklep</a>
+                    </li>
+                    <li class="nav- {{set_active("about")}}">
+                        <a class="nav-link" href="{{base_url('about')}}">O mnie</a>
                     </li>
                 </ul>
-                <form class="form-inline waves-effect waves-light">
-                    <input class="form-control" type="text" placeholder="Search">
-                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"><i class="fa fa-fw fa-instagram"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
     <!--/.Navbar-->
 
     <!--Carousel Wrapper-->
-    <div id="carousel-example-3" class="carousel slide carousel-fade white-text" data-ride="carousel" data-interval="false">
+    <div id="carousel-example-3" class="carousel slide carousel-fade white-text z-depth-1" data-ride="carousel" data-interval="false">
         <!--Indicators-->
       <!--  <ol class="carousel-indicators">
             <li data-target="#carousel-example-3" data-slide-to="0" class="active"></li>
@@ -149,101 +161,32 @@
     </div>
     <!--/.Carousel Wrapper-->
 
-    <br>
 
     <!--Content-->
-    <div class="container">
-    @yield('content')
-  </div>
+    <div class="container-fluid m-0">
+       @yield('video-bg')
+        <div class="container pt-3 pb-3">
+         @yield('content')
+        </div>
+     </div>
     <!--/.Content-->
 
 
 
     <!--Footer-->
-    <footer class="page-footer center-on-small-only">
-
-        <!--Footer Links-->
-        <div class="container-fluid">
-            <div class="row">
-
-                <!--First column-->
-                <div class="col-lg-3 offset-lg-1 hidden-lg-down">
-                    <h5 class="title">ABOUT MATERIAL DESIGN</h5>
-                    <p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>
-
-                    <p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
-                </div>
-                <!--/.First column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Second column-->
-                <div class="col-lg-2 col-md-4 offset-lg-1">
-                    <h5 class="title">Recent Trips</h5>
-                    <ul>
-                        <li><a href="#!">Balkans</a></li>
-                        <li><a href="#!">Tatra Mountains</a></li>
-                        <li><a href="#!">Norway Fjords</a></li>
-                        <li><a href="#!">Baikal Lake</a></li>
-                    </ul>
-                </div>
-                <!--/.Second column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Third column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">My guest articles</h5>
-                    <ul>
-                        <li><a href="#!">"Things I learn on the road"</a></li>
-                        <li><a href="#!">"Low-budget traveling made simple"</a></li>
-                        <li><a href="#!">"Talking with locals"</a></li>
-                        <li><a href="#!">"Leaving things behind"</a></li>
-                    </ul>
-                </div>
-                <!--/.Third column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Fourth column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Follow me on</h5>
-                    <ul>
-                        <li><a href="#!">Facebook</a></li>
-                        <li><a href="#!">Instagram</a></li>
-                        <li><a href="#!">Twitter</a></li>
-                        <li><a href="#!">Pinterest</a></li>
-                    </ul>
-                </div>
-                <!--/.Fourth column-->
-
-            </div>
-        </div>
-        <!--/.Footer Links-->
-
-        <hr>
-
-        <!--Call to action-->
-        <div class="call-to-action">
-            <h4>Material Design for Bootstrap</h4>
-            <ul>
-                <li>
-                    <h5>Get our UI KIT for free</h5></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-info" rel="nofollow">Sign up!</a></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default" rel="nofollow">Learn more</a></li>
-            </ul>
-        </div>
-        <!--/.Call to action-->
-
-        <!--Copyright-->
+    <footer id="footer" class="page-footer mt-0 center-on-small-only z-depth-2 text-shadow-1">        <!--Copyright-->
         <div class="footer-copyright">
-            <div class="container-fluid">
-                © 2015 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
-
-            </div>
+            <span class="col">© 2017 Copyright: <a href="#"> Rogalik95 </a></span>
+            <span class="col push-md-3 push-sm-2 push-lg-4 pr-1">
+                @if(!$this->ion_auth->logged_in())
+                <a href="{{base_url('login')}}"><small>Logowanie</small></a>
+                    @else
+                    <a href="{{base_url('logout')}}"><small>Wyloguj</small></a>
+                @endif
+            </span>
         </div>
-        <!--/.Copyright-->
 
+        <!--/.Copyright-->
     </footer>
     <!--/.Footer-->
     <!-- /Start your project here-->
@@ -258,7 +201,8 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{base_url('public_html/js/mdb.min.js')}}"></script>
     <script type="text/javascript" src="{{base_url('public_html/js/odometer.min.js')}}"></script>
-
+    <script type="text/javascript" src="{{base_url('public_html/js/notific8.min.js')}}"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=dxlf11gafsevwot1sm4vgszyn223lmbb5vccvnfnnr8qd1w3"></script>
 
 
     <script>

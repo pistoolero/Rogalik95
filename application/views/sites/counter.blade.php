@@ -3,8 +3,11 @@
     Licznik subów
 @endsection
 @section("content")
-    <h2 class="h2-responsive text-center text-uppercase white-text"><strong>Licznik subów</strong></h2><hr />
-    <div class="d-flex justify-content-center elegant-color-dark white-text">
-        <span class="odometer subCount" style="font-size: 6em; font-family: 'Exo 2';"></span>
+    <h1 class="h1-responsive text-center text-uppercase white-text mb-3 text-shadow"><strong>Licznik subów</strong></h1><hr />
+    <div class="d-flex justify-content-center white-text">
+        <span class="odometer subCount mb-5"></span>
     </div>
+@endsection
+@section('video-bg')
+    <div class="counter-bg"></div>
 @endsection

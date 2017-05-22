@@ -1154,12 +1154,7 @@ class Ion_auth_model extends CI_Model
 		return 0;
 	}
 
-	/**
-	 * increase_login_attempts
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param string $identity
-	 **/
+
 	public function increase_login_attempts($identity) {
 		if ($this->config->item('track_login_attempts', 'ion_auth')) {
 			$ip_address = $this->_prepare_ip($this->input->ip_address());
@@ -1168,12 +1163,7 @@ class Ion_auth_model extends CI_Model
 		return FALSE;
 	}
 
-	/**
-	 * clear_login_attempts
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param string $identity
-	 **/
+
 	public function clear_login_attempts($identity, $expire_period = 86400) {
 		if ($this->config->item('track_login_attempts', 'ion_auth')) {
 			$ip_address = $this->_prepare_ip($this->input->ip_address());

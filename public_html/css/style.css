@@ -20,18 +20,25 @@ body {
     /* change if the mask should have another color then white */
     z-index: 1040;
     /* makes sure it stays on top */
-}
 
+}
+#carousel-example-3 {
+    z-index: 100;
+}
+#footer {
+    z-index: 100;
+}
 #status {
     width: 200px;
-    height: 200px;
+    height: 400px;
     position: absolute;
     left: 50%;
     /* centers the loading animation horizontally one the screen */
-    top: 50%;
+    top: 40%;
     /* centers the loading animation vertically one the screen */
-    background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+    background-image: url(http://www.ivchenko-design.com/assets/images/gif/Preloader.gif);
     /* path to your loading animation */
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
     margin: -100px 0 0 -100px;
@@ -39,4 +46,64 @@ body {
 }
 .cursor-default{
     cursor: default;
+}
+.subCount{
+    font-size: 13em;
+    font-family: 'Exo 2';
+    text-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+    cursor: default;
+}
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+}
+.text-shadow-1 {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+@media only screen and (max-width: 768px){
+    .subCount{
+        font-size: 4em;
+    }
+}
+@media only screen and (max-width: 998px){
+    .subCount{
+        font-size: 8em;
+    }
+}
+/*@media screen and (min-width: 768px){*/
+    /*.subCount{*/
+
+    /*}*/
+/*}*/
+.video-bg, .counter-bg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px) brightness(.7);
+
+    z-index: -1;
+}
+.video-bg {
+    margin: -5px -10px -10px -5px;
+}
+.counter-bg {
+    left: -5%;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.authbg{
+    background: #5f2c82;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.subCount {
+    opacity: 0.9;
 }
